@@ -1,0 +1,83 @@
+<svg>
+  <rect id="background" />
+  <textarea id="debug" display="none">DEBUG</textarea>
+  
+  <use id="spinner" href="#spinner" />
+  
+  <svg id="challenge" display="none">
+    <rect id="timerBar" fill="#0DC2FF" x="0" y="0" height="100%" width="0" />
+    <text id="workoutDays" />
+    <text id="timer" />
+    
+    <use id="btnPlay" href="#combo-button-lower-right" fill="#0CE840">
+      <set href="combo-button-icon" attributeName="href" to="images/play.png"/>
+      <set href="combo-button-icon-press" attributeName="href" to="images/play_press.png"/>
+      <set href="combo-button-stroke" attributeName="display" to="inline"/>
+    </use>
+  </svg>
+  
+  <use id="btnReset" href="#combo-button-upper-left" fill="red" display="none">
+    <set href="combo-button-icon" attributeName="href" to="images/x.png"/>
+    <set href="combo-button-icon-press" attributeName="href" to="images/x_press.png"/>
+    <set href="combo-button-stroke" attributeName="display" to="inline"/>
+  </use>
+  
+  <use id="btnDebug" href="#combo-button-lower-left" fill="white" display="none">
+    <set href="combo-button-icon" attributeName="href" to="images/cog.png"/>
+    <set href="combo-button-icon-press" attributeName="href" to="images/cog_press.png"/>
+    <set href="combo-button-stroke" attributeName="display" to="inline"/>
+  </use>
+  
+  <svg id="initPopup" display="none">
+    <rect class="full-size" fill="fb-black" />
+    <!-- Title and text -->
+    <use href="#mixed-text-center-mid" class="dialog-mixed-text" fill="fb-white">
+      <set href="#top-padding" attributeName="display" to="none" />
+      <set href="#header/text" attributeName="text-buffer" to="30 Day Workout" />
+      <set href="#header/text" attributeName="fill" to="#0DC2FF"/>
+      <set href="#copy/text" attributeName="text-buffer" to="Press Start to begin a 30 day workout!" />
+      <set href="#bottom-padding" attributeName="display" to="none" />
+    </use>
+    <!-- button -->
+    <use id="popupBtn" class="dialog-half-button-right" href="#square-button-positive">
+      <set href="#text" attributeName="text-buffer" to="Start" />
+      <set href="#text" attributeName="text-anchor" to="middle" />
+    </use>
+  </svg>
+  
+  <svg id="successPopup" display="none">
+    <rect class="full-size" fill="fb-black" />
+    <!-- Title and text -->
+    <use href="#mixed-text-center-mid" class="dialog-mixed-text" fill="fb-white">
+      <set href="#top-padding" attributeName="display" to="none" />
+      <set href="#header/text" attributeName="text-buffer" to="30 Day Workout Complete!" />
+      <set href="#header/text" attributeName="fill" to="#0DC2FF"/>
+      <set href="#copy/text" attributeName="text-buffer" to="You completed a 30 day workout! Nice job!" />
+      <set href="#bottom-padding" attributeName="display" to="none" />
+    </use>
+    <!-- button -->
+    <use id="successPopupBtn" class="dialog-half-button-right" href="#square-button-positive">
+      <set href="#text" attributeName="text-buffer" to="Start New" />
+      <set href="#text" attributeName="text-anchor" to="middle" />
+    </use>
+  </svg>
+  
+  <svg id="failedPopup" display="none">
+    <rect class="full-size" fill="fb-black" />
+    <!-- Title and text -->
+    <use href="#mixed-text-center-mid" class="dialog-mixed-text" fill="fb-white">
+      <set href="#top-padding" attributeName="display" to="none" />
+      <set href="#header/text" attributeName="text-buffer" to="30 Day Workout Failed!" />
+      <set href="#header/text" attributeName="fill" to="#0DC2FF"/>
+      <set href="#copy/text" attributeName="text-buffer" to="You have failed! Press Restart to try again!" />
+      <set href="#bottom-padding" attributeName="display" to="none" />
+    </use>
+    <!-- button -->
+    <use id="failedPopupBtn" class="dialog-half-button-right" href="#square-button-negative">
+      <set href="#text" attributeName="text-buffer" to="Restart" />
+      <set href="#text" attributeName="text-anchor" to="middle" />
+    </use>
+  </svg>
+  
+  <text font-size="15" x="50%" y="20" text-anchor="middle" fill="#0CE840">BETA</text>
+</svg>

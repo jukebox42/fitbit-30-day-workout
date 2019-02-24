@@ -1,0 +1,23 @@
+{
+  "fitbit": {
+    "appUUID": "1522f0f0-5657-4909-876d-f8a73f1ea33f",
+    "appType": "app",
+    "appDisplayName": "30 Day Workout Beta",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "#03a9f4",
+    "requestedPermissions": [
+      "access_exercise"
+    ],
+    "buildTargets": [
+      "meson"
+    ],
+    "i18n": {
+      "en": {
+        "name": "30 Day Workout Beta"
+      }
+    }
+  },
+  "devDependencies": {
+    "@fitbit/sdk": "~3.0.0"
+  }
+}
