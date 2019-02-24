@@ -6,6 +6,12 @@ A 30 day workout app for a Fibit Versa. You pick a challenge, say planks or wall
 
 My wife wanted a 30 workout challenge app so I made her one. Fibit's API is surprisingly easy to use.
 
+## What does it look like?
+
+![start](screenshots/start.png)
+![timer](screenshots/timer.png)
+![timer in use](screenshots/timer-inuse.png)
+
 ## Can I use it?
 
 Sure. You can download the beta here: https://gam.fitbit.com/gallery/app/1522f0f0-5657-4909-876d-f8a73f1ea33f
