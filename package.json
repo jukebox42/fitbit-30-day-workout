@@ -1,6 +1,5 @@
 {
   "fitbit": {
-    "appUUID": "1522f0f0-5657-4909-876d-f8a73f1ea33f",
     "appType": "app",
     "appDisplayName": "30 Day Workout Beta",
     "iconFile": "resources/icon.png",
