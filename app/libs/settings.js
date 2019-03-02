@@ -12,6 +12,7 @@ export function settingsInit(callback) {
   // Message socket opens
   messaging.peerSocket.onopen = () => {
     console.log("App Socket Open");
+    send("get", {});
   };
 
   // Message socket closes
@@ -36,13 +37,7 @@ export function cancelWorkout() {
 }
 
 export function newWorkout() {
-  send(
-    "new",
-    {
-      start: new Date().setHours(0,0,0,0),
-      latest: 0, // Make them match to indicate a new workout.*/
-    }
-  );
+  send("new", { start: new Date().setHours(0,0,0,0) });
 }
 
 function send(command, data) {

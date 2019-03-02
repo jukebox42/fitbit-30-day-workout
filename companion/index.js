@@ -4,7 +4,7 @@ import { settingsStorage } from "settings";
 // Message socket opens
 messaging.peerSocket.onopen = () => {
   console.log("Companion Socket Open");
-  restoreSettings();
+  // restoreSettings();
 };
 
 // Message socket closes
@@ -16,10 +16,13 @@ messaging.peerSocket.onmessage = evt => {
   console.log(`Companion received: ${JSON.stringify(evt.data)}`);
   
   switch(evt.data.command) {
+    case "get":
+      restoreSettings();
+      break;
     case "new":
       settingsStorage.setItem("status", "active");
       settingsStorage.setItem("start", evt.data.data.start);
-      settingsStorage.setItem("latest", evt.data.data.latest);
+      settingsStorage.setItem("latest", 0);
       restoreSettings();
       break;
     case "update":
