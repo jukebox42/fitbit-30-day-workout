@@ -41,13 +41,17 @@ export function newWorkout() {
 }
 
 function send(command, data) {
+  const msg = {
+    command: command,
+    data: data,
+  };
+  ui.debug.append("Sending: " + JSON.stringify(msg, null, "  "));
   if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
-    const msg = {
-      command: command,
-      data: data,
-    };
-    console.log("SENDING " + JSON.stringify(msg));
-    ui.debug.append("Sending: " + JSON.stringify(msg, null, "  "));
     messaging.peerSocket.send(msg);
+  } else {
+    setTimeout(() => {
+      ui.debug.append("Connection not set. Trying again");
+      send(command, data);
+    }, 1000);
   }
 }
