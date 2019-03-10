@@ -1,6 +1,16 @@
 import { settingsInit, newWorkout, cancelWorkout, updateWorkout } from "./libs/settings";
 import { initTimer, startTimer, timerDone } from "./libs/timer";
-import { getDay, isActiveExersize, isRestDay, getInterval, getExersizeNumber, alreadyDone, completedExersize, failedExersize } from "./libs/enforcer";
+import {
+  getDay,
+  isActiveExersize,
+  isRestDay,
+  skippedRestDay,
+  getInterval,
+  getExersizeNumber,
+  alreadyDone,
+  completedExersize,
+  failedExersize
+} from "./libs/enforcer";
 import * as ui from "./ui";
 
 // ui.debug.enable();
@@ -68,7 +78,7 @@ settingsInit((settings) => {
     return;
   }
   
-  if (failedExersize(settings, today)) {
+  if (failedExersize(settings, today) && !skippedRestDay(settings, today)) {
     ui.spinner.stop();
     ui.failedPopup.show();
     return;
@@ -93,14 +103,20 @@ settingsInit((settings) => {
   initTimer(interval);
   ui.debug.append("Interval: " + interval);
   
-  // Handle rest days
+  /**
+   * Handle rest days
+   */
   if (isRestDay(interval)) {
     updateWorkout(today);
+    // no button to press on a rest day
     ui.playButton.hide();
+  } else {
+    ui.playButton.show();
   }
   
-  // Finally handle showing the challenge
+  /**
+   * Show challenge
+   */
   ui.spinner.stop();
-  ui.playButton.show();
   ui.challenge.show();
 });

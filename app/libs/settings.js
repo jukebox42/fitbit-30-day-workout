@@ -4,27 +4,25 @@ import * as ui from "../ui";
 export function settingsInit(callback) {
   // Message is received
   messaging.peerSocket.onmessage = evt => {
-    console.log(`App received: ${JSON.stringify(evt.data)}`);
-    ui.debug.set("Settings: " + JSON.stringify(evt.data, null, "  "));
+    ui.debug.set(`App received: ${JSON.stringify(evt.data, null, "  ")}`);
     callback(evt.data);
   };
 
   // Message socket opens
   messaging.peerSocket.onopen = () => {
-    console.log("App Socket Open");
+    ui.debug.append("App Socket Open");
     send("get", {});
   };
 
   // Message socket closes
   messaging.peerSocket.onclose = () => {
-    console.log("App Socket Closed");
+    ui.debug.append("App Socket Closed");
   };
 
   // Listen for the onerror event
   messaging.peerSocket.onerror = function(err) {
     // Handle any errors
-    console.log("Connection error: " + err.code + " - " + err.message);
-    ui.debug.set("Error: " + err.code + " - " + err.message);
+    ui.debug.append(`Connection Error: ${err.code} - ${err.message}`);
   }
 }
 
@@ -37,7 +35,7 @@ export function cancelWorkout() {
 }
 
 export function newWorkout() {
-  send("new", { start: new Date().setHours(0,0,0,0) });
+  send("new", {});
 }
 
 function send(command, data) {
@@ -45,7 +43,7 @@ function send(command, data) {
     command: command,
     data: data,
   };
-  ui.debug.append("Sending: " + JSON.stringify(msg, null, "  "));
+  ui.debug.append(`Sending: ${JSON.stringify(msg, null, "  ")}`);
   if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
     messaging.peerSocket.send(msg);
   } else {

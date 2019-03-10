@@ -21,17 +21,19 @@ export function hide() {
 }
 
 export function set(content) {
+  console.log(content);
   if (!debugEnabled) {
     return;
   }
-  debug.text = "DEBUG\n" + content;
+  debug.text = `DEBUG\n${content}`;
 }
 
 export function append(content) {
+  console.log(content);
   if (!debugEnabled) {
     return;
   }
-  debug.text = debug.text + "\n" + content;
+  debug.text = `${debug.text}\n${content}`;
 }
 
 btn.onclick = function(evt) {
